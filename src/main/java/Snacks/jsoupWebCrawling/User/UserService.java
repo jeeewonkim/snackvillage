@@ -1,6 +1,7 @@
 package Snacks.jsoupWebCrawling.User;
 
 import Snacks.jsoupWebCrawling.User.Dto.UserSignUpDto;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UserService {
     void signUp(UserSignUpDto userSignUpDto) throws Exception;
     UserDetails checkDuplicated(UserSignUpDto userSignUpDto) throws Exception;
-    UserDetails login(PrincipalDetails principalDetails) throws Exception;
+    //UserDetails login(PrincipalDetails principalDetails) throws Exception;
+
+    //Authentication login(Authentication authentication);
 
 }

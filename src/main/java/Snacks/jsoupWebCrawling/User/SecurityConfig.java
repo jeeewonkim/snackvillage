@@ -3,6 +3,7 @@ package Snacks.jsoupWebCrawling.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CsrfFilter;
 
 @EnableWebSecurity
 @Configuration
@@ -38,41 +40,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().logoutSuccessUrl("/") //로그아웃 요청시 홈으로 이동
                 .invalidateHttpSession(true)
-                /*.and()
-                .formLogin()
-                .loginPage("/login")
-                .usernameParameter("userId")
-                .passwordParameter("password")
-                .successHandler(customAuthenticationSuccessHandler)
-                .failureHandler(customAuthenticationFailureHandler)*/
                 .and()
                 .authorizeRequests()
-                //.antMatchers("/admin/**").hasRole("ADMIN")
-                //.antMatchers("/login").hasAnyRole("ROLE_USER")
                 .antMatchers("/**").permitAll()
-                .anyRequest().permitAll();
-                //.addFilterAfter(customAuthenticationFilter(), CsrfFilter.class);
-                /*.and()
-                .addFilterBefore(customAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);*/
+                .anyRequest().permitAll()
+                .and()
+                .addFilterAfter(customAuthenticationFilter(), CsrfFilter.class);
     }
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.authenticationProvider(customAuthenticationProvider);
     }
 
-  /*  public CustomAuthenticationFilter customAuthenticationFilter() throws Exception{
+    @Bean
+    public CustomAuthenticationFilter customAuthenticationFilter() throws Exception{
         CustomAuthenticationFilter filter = new CustomAuthenticationFilter("/login");
         filter.setAuthenticationManager(authenticationManagerBean());
+        filter.setAuthenticationFailureHandler(customAuthenticationFailureHandler);
+        filter.setAuthenticationSuccessHandler(customAuthenticationSuccessHandler);
         return filter;
 
-    }*/
-    /*@Bean
+    }
+    @Bean
     public CustomAuthenticationProvider authenticationProvider(){
-        return  new CustomAuthenticationProvider(principalDetailsService, passwordEncoder);
-    }*/
-   /* @Bean
+        return  new CustomAuthenticationProvider(passwordEncoder, principalDetailsService);
+    }
+    @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception{
         return super.authenticationManagerBean();
     }
-*/
 
 }

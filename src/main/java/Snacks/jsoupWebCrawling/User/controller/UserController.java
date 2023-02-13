@@ -1,6 +1,12 @@
-package Snacks.jsoupWebCrawling.User;
+package Snacks.jsoupWebCrawling.User.controller;
 
+import Snacks.jsoupWebCrawling.Repository.UserRepository;
 import Snacks.jsoupWebCrawling.User.Dto.UserSignUpDto;
+import Snacks.jsoupWebCrawling.User.PrincipalDetails;
+import Snacks.jsoupWebCrawling.User.PrincipalDetailsService;
+import Snacks.jsoupWebCrawling.User.User;
+import Snacks.jsoupWebCrawling.User.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -33,13 +39,13 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity signUp(@Valid @RequestBody UserSignUpDto userSignUpDto)throws Exception {
+    public ResponseEntity signUp(@Valid @RequestBody UserSignUpDto userSignUpDto) throws Exception {
         userService.signUp(userSignUpDto);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PostMapping("/checkId")
-    public ResponseEntity<UserDetails> checkDuplicated(@RequestBody UserSignUpDto userSignUpDto) throws Exception{
+    public ResponseEntity<UserDetails> checkDuplicated(@RequestBody UserSignUpDto userSignUpDto) throws Exception {
         return ResponseEntity.ok(userService.checkDuplicated(userSignUpDto));
 
         // new ResponseEntity(HttpStatus.OK);

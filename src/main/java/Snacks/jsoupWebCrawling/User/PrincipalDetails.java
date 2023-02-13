@@ -14,12 +14,14 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class PrincipalDetails implements UserDetails {
     private User user;
     private String userId;
     private String password;
     private String role;
 
+    @Builder
     public PrincipalDetails(User user){
         this.user = user;
         this.userId = user.getUserId();
