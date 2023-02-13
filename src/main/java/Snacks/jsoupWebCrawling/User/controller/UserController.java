@@ -45,8 +45,10 @@ public class UserController {
     }
 
     @PostMapping("/checkId")
-    public ResponseEntity<UserDetails> checkDuplicated(@RequestBody UserSignUpDto userSignUpDto) throws Exception {
-        return ResponseEntity.ok(userService.checkDuplicated(userSignUpDto));
+    public ResponseEntity<UserDetails> checkDuplicated(@RequestBody UserSignUpDto userSignUpDto) throws Exception
+    {
+        userService.checkDuplicated(userSignUpDto);
+        return new ResponseEntity(HttpStatus.OK);
 
         // new ResponseEntity(HttpStatus.OK);
     }
