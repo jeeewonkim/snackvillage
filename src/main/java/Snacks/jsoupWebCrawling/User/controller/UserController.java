@@ -2,10 +2,8 @@ package Snacks.jsoupWebCrawling.User.controller;
 
 import Snacks.jsoupWebCrawling.Repository.UserRepository;
 import Snacks.jsoupWebCrawling.User.Dto.UserSignUpDto;
-import Snacks.jsoupWebCrawling.User.PrincipalDetails;
-import Snacks.jsoupWebCrawling.User.PrincipalDetailsService;
-import Snacks.jsoupWebCrawling.User.User;
-import Snacks.jsoupWebCrawling.User.UserService;
+import Snacks.jsoupWebCrawling.User.Service.PrincipalDetailsService;
+import Snacks.jsoupWebCrawling.User.Service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,12 +43,9 @@ public class UserController {
     }
 
     @PostMapping("/checkId")
-    public ResponseEntity<UserDetails> checkDuplicated(@RequestBody UserSignUpDto userSignUpDto) throws Exception
-    {
+    public ResponseEntity checkDuplicated(@RequestBody UserSignUpDto userSignUpDto) throws Exception{
         userService.checkDuplicated(userSignUpDto);
         return new ResponseEntity(HttpStatus.OK);
-
-        // new ResponseEntity(HttpStatus.OK);
     }
 
 

@@ -1,6 +1,6 @@
 package Snacks.jsoupWebCrawling.User.Dto;
 
-import Snacks.jsoupWebCrawling.User.User;
+import Snacks.jsoupWebCrawling.User.Entity.User;
 
 public class UserSignUpDto {
     private String userId;

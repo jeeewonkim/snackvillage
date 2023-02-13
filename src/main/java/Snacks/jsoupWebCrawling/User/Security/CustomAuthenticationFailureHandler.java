@@ -1,7 +1,6 @@
-package Snacks.jsoupWebCrawling.User;
+package Snacks.jsoupWebCrawling.User.Security;
 
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.bridge.MessageUtil;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

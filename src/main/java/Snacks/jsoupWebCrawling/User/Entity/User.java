@@ -1,4 +1,4 @@
-package Snacks.jsoupWebCrawling.User;
+package Snacks.jsoupWebCrawling.User.Entity;
 
 import lombok.Builder;
 import lombok.Getter;
