@@ -17,7 +17,7 @@ import java.io.IOException;
 @Component
 @Slf4j
 public class CustomAuthenticationFailureHandler implements AuthenticationFailureHandler {
-
+    //
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         if(exception instanceof BadCredentialsException){
@@ -25,8 +25,7 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
         if(exception instanceof UsernameNotFoundException)
             log.error("게정 존재하지 않음");
 
-        log.info("login_Failue");
-        new ResponseEntity(HttpStatus.UNAUTHORIZED);
-       //response.sendRedirect("http://localhost:8080/loginFail");
+        log.info("login_Failure");
+       response.sendRedirect("http://localhost:8080/loginFail");
     }
 }

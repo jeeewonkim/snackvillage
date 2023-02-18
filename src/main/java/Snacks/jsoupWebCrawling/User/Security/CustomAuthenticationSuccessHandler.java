@@ -23,9 +23,9 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         HttpSession httpSession = request.getSession();
         httpSession.setMaxInactiveInterval(60);
         log.info("login_SUCCESS");
+        log.info("httpSession = {}", httpSession);
 
 
-       response.sendRedirect("http://localhost:8080/findA");
-       //response.sendRedirect("http://localhost:8080/login/success");
+       response.sendRedirect("http://localhost:8080/loginSuccess");
     }
 }

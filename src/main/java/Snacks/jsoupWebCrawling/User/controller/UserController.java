@@ -41,13 +41,13 @@ public class UserController {
         this.principalDetailsService = principalDetailsService;
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/auth/signup")
     public ResponseEntity signUp(@Valid @RequestBody UserSignUpDto userSignUpDto) throws Exception {
         userService.signUp(userSignUpDto);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
-    @PostMapping("/checkId")
+    @PostMapping("/auth/checkId")
     public ResponseEntity checkDuplicated(@RequestBody UserSignUpDto userSignUpDto) throws Exception {
         userService.checkDuplicated(userSignUpDto);
         return new ResponseEntity(HttpStatus.OK);
