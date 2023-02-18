@@ -1,6 +1,8 @@
 package Snacks.jsoupWebCrawling.User.Security;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,6 +24,9 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
             log.error("비밀번호 잘못입력함"); }
         if(exception instanceof UsernameNotFoundException)
             log.error("게정 존재하지 않음");
-        response.sendRedirect("http://localhost:8080/login/fail");
+
+        log.info("login_Failue");
+        new ResponseEntity(HttpStatus.UNAUTHORIZED);
+       //response.sendRedirect("http://localhost:8080/loginFail");
     }
 }

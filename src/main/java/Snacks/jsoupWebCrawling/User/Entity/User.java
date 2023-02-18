@@ -3,6 +3,7 @@ package Snacks.jsoupWebCrawling.User.Entity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @DynamicUpdate //update 할때 실제 값이 변경된 컬럼으로만 update 쿼리를 만듦
 @Entity
 @Getter
+@Setter
 @Table(name = "userTBL")
 public class User {
     @Id

@@ -40,6 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable() //csrf 공격을 막아주는 옵션을 disable
+                .cors().disable()
+                //.httpBasic().disable()
+                .formLogin().disable()
                 .headers().frameOptions().disable()
                 .and()
                 .logout().logoutSuccessUrl("/") //로그아웃 요청시 홈으로 이동

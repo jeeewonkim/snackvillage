@@ -1,7 +1,13 @@
 package Snacks.jsoupWebCrawling.User.Dto;
 
 import Snacks.jsoupWebCrawling.User.Entity.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class UserSignUpDto {
     private String userId;
     private String userName;

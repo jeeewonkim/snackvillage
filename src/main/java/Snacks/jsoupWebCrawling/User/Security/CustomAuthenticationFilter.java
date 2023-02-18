@@ -28,6 +28,9 @@ public class CustomAuthenticationFilter extends AbstractAuthenticationProcessing
         String userId = request.getParameter("userId");
         String password = request.getParameter("password");
 
+        log.info("filter ={}", userId);
+
+
         return getAuthenticationManager().authenticate(new UsernamePasswordAuthenticationToken(userId, password));
     }
 }

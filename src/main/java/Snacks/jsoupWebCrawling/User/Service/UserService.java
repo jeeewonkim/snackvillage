@@ -1,5 +1,8 @@
 package Snacks.jsoupWebCrawling.User.Service;
 
+import Snacks.jsoupWebCrawling.User.Dto.FindUserIdDto;
+import Snacks.jsoupWebCrawling.User.Dto.MailDto;
+import Snacks.jsoupWebCrawling.User.Dto.MailUserDto;
 import Snacks.jsoupWebCrawling.User.Dto.UserSignUpDto;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -12,5 +15,11 @@ public interface UserService {
     void signUp(UserSignUpDto userSignUpDto) throws Exception;
     void checkDuplicated(UserSignUpDto userSignUpDto) throws Exception;
 
+    MailDto createMailAndChangePassword(MailUserDto mailUserDto) throws Exception;
 
-}
+    void mailSend(MailDto mailDto);
+
+    String findUserId(FindUserIdDto findUserIdDto) throws Exception;
+
+
+    }
