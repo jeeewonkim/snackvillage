@@ -13,7 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public interface UserService {
     void signUp(UserSignUpDto userSignUpDto) throws Exception;
-    void checkDuplicated(UserSignUpDto userSignUpDto) throws Exception;
+   // void checkDuplicated(String userId) throws Exception;
+   void checkDuplicated(UserSignUpDto userSignUpDto) throws Exception;
 
     MailDto createMailAndChangePassword(MailUserDto mailUserDto) throws Exception;
 

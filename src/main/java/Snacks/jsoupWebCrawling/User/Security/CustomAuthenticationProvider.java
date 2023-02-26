@@ -30,6 +30,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
+        log.info("AuthenticationProvider Run");
+
         String userId = authentication.getName();
         String password = (String) authentication.getCredentials();
 

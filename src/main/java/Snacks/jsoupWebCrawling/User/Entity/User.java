@@ -50,18 +50,6 @@ public class User {
         this.role = role;
     }
 
-   /* public static User createUser(UserInfoDto userDto, PasswordEncoder passwordEncoder) {
-        User user = User.builder()
-                .userId(userDto.getUserId())
-                .userEmail(null)
-                .platformType("own")
-                .userName(userDto.getUserName())
-                .password(passwordEncoder.encode(userDto.getPassword()))
-                .role(UserRole.USER)
-                .build();
-        return user;
-
-    }*/
 
     public void encodePassword(PasswordEncoder passwordEncoder){
         this.password = passwordEncoder.encode(password);
@@ -70,4 +58,10 @@ public class User {
 /*    public void addUserAuthority(){
         this.role = role.USER;
     }*/
+
+    public User update(String userEmail, String userName){
+        this.userEmail = userEmail;
+        this.userName = userName;
+        return this;
+    }
 }

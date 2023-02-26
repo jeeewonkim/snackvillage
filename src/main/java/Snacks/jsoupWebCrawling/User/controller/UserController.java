@@ -1,10 +1,7 @@
 package Snacks.jsoupWebCrawling.User.controller;
 
 import Snacks.jsoupWebCrawling.Repository.UserRepository;
-import Snacks.jsoupWebCrawling.User.Dto.FindUserIdDto;
-import Snacks.jsoupWebCrawling.User.Dto.MailDto;
-import Snacks.jsoupWebCrawling.User.Dto.MailUserDto;
-import Snacks.jsoupWebCrawling.User.Dto.UserSignUpDto;
+import Snacks.jsoupWebCrawling.User.Dto.*;
 import Snacks.jsoupWebCrawling.User.Entity.User;
 import Snacks.jsoupWebCrawling.User.Service.PrincipalDetailsService;
 import Snacks.jsoupWebCrawling.User.Service.UserService;
@@ -69,3 +66,4 @@ public class UserController {
         return ResponseEntity.ok(customAuthenticationProvider.authenticate(userSignUpDto);
    }*/
 }
+
